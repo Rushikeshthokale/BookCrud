@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AddBooks</title>
+    <style>
+        body{
+        background-image: url("/static/images/background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat; 
+      }
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        form input{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 10px 10px;
+            border: 2px solid black;
+            width: 200px;
+            height: 30px;
+        }
+        .green{
+            background-color: rgb(146, 219, 146);
+            padding: 10px;
+            margin: -10px 60px;
+            margin-bottom: 20px;
+        }
+        form{
+            padding: 10px 60px;
+            border: 2px solid black;
+            background-color: aqua;
+            border-radius: 15px;
+        }
+        .green:hover{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <h1>Add Books</h1>
+    <form action="/register" method="Post">
+        {% csrf_token %}
+    <b>Title:</b><input type="text" name="title" placeholder="Enter Title"> <br>
+    <b>Author:</b><input type="text" name="author" placeholder="Enter Author"><br>
+    <b>Price:</b><input type="text" name="price" placeholder="Enter Price"><br>
+   <!-- <center> <input type="submit" value="add book" class="green"></center> -->
+   <br> <button type="submit" class="green"><b>Add Book</b></button> 
+</form>
+</div>
+</body>
+</html>

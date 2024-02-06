@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Book</title>
+    <style>
+      body {
+        background-image: url("/static/images/background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      form input {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: 10px 10px;
+        border: 2px solid black;
+        width: 200px;
+        height: 30px;
+      }
+      .green {
+        background-color: greenyellow;
+        padding: 10px;
+        margin: -10px 60px;
+        margin-bottom: 10px;
+      }
+      form {
+        padding: 10px 60px;
+        border: 2px solid black;
+        background-color: aqua;
+        border-radius: 15px;
+      }
+      .green:hover {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Update Book</h1>
+      <form action="/update/{{book.id}}" method="Post">
+        {% csrf_token %}
+        <b>Title:</b><input type="text" name="title" placeholder="Enter Title" value="{{book.title}}" /> <br />
+        <b>Author:</b><input type="text" name="author" placeholder="Enter Author" value="{{book.author}}" /><br />
+        <b>Price:</b><input type="text" name="price" placeholder="Enter Price" value="{{book.price}}" /><br />
+        <!-- <center> <input type="submit" value="add book" class="green"></center> -->
+        <center><button type="submit" class="green">Update Book</button></center>
+      </form>
+    </div>
+  </body>
+</html>

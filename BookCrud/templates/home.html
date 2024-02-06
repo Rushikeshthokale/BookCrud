@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link rel="icon" type="image"  href="static/images/favicon.ico">
+    <style>
+      body{
+        background-image: url("static/images/background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        
+      }
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      table {
+        width: 850px;
+        height: 100px;
+        border: 3px solid black;
+      }
+      table th,td{
+        padding: 10px;
+        border: 3px solid black;
+      }
+      button a{
+        text-decoration: none;
+        list-style: none;
+      }
+      .add{
+        margin-top: 30px;
+        height: 50px;
+        width: 120px;
+        background-color: greenyellow;
+        cursor: pointer;
+      }
+      .add:hover{
+        background-color: black;
+        color: white;
+      }
+      .btnup{
+        cursor: pointer;
+        width: 80px;
+        height: 30px;
+        background-color: rgb(83, 83, 158);
+        color: white;
+      }
+      .btnup:hover{
+        background-color: blue;
+        color: white;
+      }
+      a {
+        text-decoration: none;
+      }
+      .btndel{
+        background-color: rgb(211, 101, 101);
+        cursor: pointer;
+        width: 80px;
+        height: 30px;
+        color: white;
+      }
+      .btndel:hover{
+        background-color: red;
+      }
+      .idd{
+        color: red;
+        font-size: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <center>
+        <h1>Book Details</h1>
+        
+        <table >
+          <!-- <th>Book Details</th> -->
+          <tr class="idd">
+            <th>Id</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Price</th>
+            <th colspan="2">Action</th>
+          </tr>
+          {% for book in books %}
+          <tr class="idd">
+            <td><center>{{book.id}}</center></td>
+            <td><center>{{book.title}}</td></center>
+            <td><center>{{book.author}}</td></center>
+            <td><center>{{book.price}}</td></center>
+            <td>
+              <center>
+                <a href="/delete/{{book.id}}"><button class="btndel">Delete</button></a>
+              </center>
+            </td>
+            <td>
+              <center>
+                <a href="/update/{{book.id}}">  <button class="btnup">Update</button></a>
+              </center>
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+        <a href="/register"><button class="add"><b> Add Book</b></button></a>
+        
+      </center>
+    </div>
+  </body>
+</html>
